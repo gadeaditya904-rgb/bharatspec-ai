@@ -11,7 +11,7 @@ FROM node:20-alpine AS frontend-builder
 WORKDIR /app/frontend
 
 COPY frontend/package*.json ./
-RUN npm ci
+RUN npm install
 
 COPY frontend/ ./
 RUN npm run build
@@ -41,6 +41,7 @@ COPY backend/ ./backend/
 
 # Copy built frontend from Stage 1 into backend-accessible location
 COPY --from=frontend-builder /app/frontend/dist ./frontend/dist
+COPY --from=frontend-builder /app/frontend/dist ./backend/dist
 
 EXPOSE 8000
 

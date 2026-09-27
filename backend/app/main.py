@@ -3,12 +3,15 @@ BHARATSPEC - FastAPI Backend Server
 REST API for Indian Standards & Procurement Intelligence Platform
 """
 
+import os
 import io
 import re
 import uuid
 from datetime import datetime
 from fastapi import FastAPI, HTTPException, UploadFile, File, Form, Body
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from typing import List, Optional, Dict, Any
 
 import pypdf
@@ -67,6 +70,27 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Helper to locate frontend dist directory (for local dev, Docker container, or Render/Railway/Fly.io)
+def find_frontend_dist() -> Optional[str]:
+    possible_paths = [
+        os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "dist"),
+        os.path.join(os.path.dirname(__file__), "..", "dist"),
+        os.path.join(os.getcwd(), "frontend", "dist"),
+        os.path.join(os.getcwd(), "dist"),
+        "/app/frontend/dist",
+        "/app/backend/dist"
+    ]
+    for p in possible_paths:
+        if os.path.exists(p) and os.path.isfile(os.path.join(p, "index.html")):
+            return os.path.abspath(p)
+    return None
+
+FRONTEND_DIST = find_frontend_dist()
+if FRONTEND_DIST:
+    assets_dir = os.path.join(FRONTEND_DIST, "assets")
+    if os.path.exists(assets_dir):
+        app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
 
 # In-memory storage for persistent demo analyses and reports during runtime
 ANALYSIS_STORE: Dict[str, AnalysisResponse] = {}
@@ -308,9 +332,23 @@ ANALYSIS_STORE[DEFAULT_ANALYSIS.analysis_id] = DEFAULT_ANALYSIS
 ANALYSIS_STORE["demo-active"] = DEFAULT_ANALYSIS
 ANALYSIS_STORE["demo-solar-001"] = DEFAULT_ANALYSIS
 
-@app.get("/")
 @app.get("/api/health")
-def root():
+def health_check():
+    return {
+        "platform": "BHARATSPEC",
+        "tagline": "Indian Standards & Procurement Intelligence Platform",
+        "status": "Online",
+        "knowledge_base": {
+            "version": "v2.6-Sept2026",
+            "standards_count": 2450,
+            "regulatory_records": 320
+        }
+    }
+
+@app.get("/")
+def serve_root():
+    if FRONTEND_DIST and os.path.isfile(os.path.join(FRONTEND_DIST, "index.html")):
+        return FileResponse(os.path.join(FRONTEND_DIST, "index.html"))
     return {
         "platform": "BHARATSPEC",
         "tagline": "Indian Standards & Procurement Intelligence Platform",
@@ -1861,29 +1899,7 @@ def get_gazette_audit_log():
 # -------------------------------------------------------------
 # PRODUCTION DEPLOYMENT: SERVE FRONTEND SPA WHEN BUILT
 # -------------------------------------------------------------
-import os
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
-
-# Check potential frontend build paths (monorepo root or embedded in Docker container)
-possible_paths = [
-    os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "dist"),
-    os.path.join(os.path.dirname(__file__), "..", "dist"),
-    os.path.join(os.getcwd(), "frontend", "dist"),
-    os.path.join(os.getcwd(), "dist")
-]
-
-FRONTEND_DIST = None
-for path in possible_paths:
-    if os.path.exists(path) and os.path.isfile(os.path.join(path, "index.html")):
-        FRONTEND_DIST = os.path.abspath(path)
-        break
-
 if FRONTEND_DIST:
-    assets_dir = os.path.join(FRONTEND_DIST, "assets")
-    if os.path.exists(assets_dir):
-        app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
-
     @app.get("/{full_path:path}")
     async def serve_spa_frontend(full_path: str):
         if full_path.startswith("api") or full_path.startswith("docs") or full_path.startswith("openapi.json"):
