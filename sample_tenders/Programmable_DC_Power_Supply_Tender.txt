@@ -1,0 +1,35 @@
+DEFENCE RESEARCH & ELECTRONICS TESTING LABORATORY
+NOTICE INVITING TENDER: DETL/PROC/LAB-PS/2026/15
+TENDER FOR: Supply of High-Precision Programmable Laboratory DC Power Supplies (0-60V, 0-30A, 900W)
+
+SECTION 3: TECHNICAL SPECIFICATIONS FOR LABORATORY DC POWER SUPPLY
+1. OUTPUT RATINGS & PERFORMANCE:
+1.1 Output Voltage: Continuously programmable from 0 to 60 Volts DC.
+1.2 Output Current: Continuously programmable from 0 to 30 Amperes DC.
+1.3 Output Power: Total continuous output power shall be minimum 900 Watts with autoranging V/I envelope.
+1.4 Line Regulation: <= 0.01% + 2 mV for voltage; <= 0.01% + 250 uA for current.
+1.5 Load Regulation: <= 0.01% + 2 mV for voltage; <= 0.01% + 250 uA for current.
+1.6 Voltage Ripple and Noise (20 Hz to 20 MHz): Not exceeding 2 mVrms / 20 mV peak-to-peak.
+1.7 Current Ripple: Less than 5 mArms.
+2. ACCURACY & PROGRAMMING RESOLUTION:
+2.1 Programming Resolution: Voltage resolution <= 1 mV; Current resolution <= 1 mA.
+2.2 Readback Accuracy: Voltage +/- (0.05% + 10 mV); Current +/- (0.1% + 10 mA).
+2.3 Transient Response Time: Less than 50 microseconds for output recovery to within 15 mV following a 50% to 100% load step.
+3. OPERATING MODES & PROTECTIONS:
+3.1 Seamless automatic crossover between Constant Voltage (CV) and Constant Current (CC) modes.
+3.2 Comprehensive hardware and software protection: Over Voltage Protection (OVP), Over Current Protection (OCP), Over Temperature Protection (OTP), and Reverse Voltage Polarity Protection.
+3.3 Output enable/disable electronic soft switch with isolated floating output terminals.
+4. USER INTERFACE & REMOTE CONNECTIVITY:
+4.1 Minimum 4.3-inch high-resolution color TFT display showing simultaneous real-time voltage, current, power, and operational mode.
+4.2 Standard remote programming interfaces: USB (USBTMC), RS-232, and LAN (LXI Core 2011 compliant) with SCPI command set.
+4.3 Analog programming and monitoring interface (0-5V / 0-10V control inputs).
+5. ELECTRICAL & ENVIRONMENTAL SPECIFICATIONS:
+5.1 Universal AC input: 100V to 240V AC (+/- 10%), single phase, 47-63 Hz with active Power Factor Correction (PFC >= 0.98).
+5.2 Operating temperature: 0°C to 40°C, Relative humidity: up to 80% non-condensing.
+5.3 Cooling: Forced air cooling with low-noise temperature-controlled smart fan.
+5.4 Chassis earthing terminal complying with IS 3043 Code of Practice for Earthing.
+6. SAFETY & QUALITY STANDARDS:
+6.1 Safety conformity: Conformance to IS/IEC 61010-1 Safety Requirements for Electrical Equipment for Measurement, Control, and Laboratory Use.
+6.2 Electromagnetic Compatibility (EMC): Conformance to IS/IEC 61326-1 for laboratory equipment and IS/IEC 61000-3-2 for AC harmonic emissions.
+6.3 Calibration: Valid calibration certificate from an NABL accredited laboratory (ISO/IEC 17025) with reported measurement uncertainties.
+6.4 3 Years Comprehensive OEM warranty including parts and calibration support.

@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  bharatspec:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bharatspec-ai:latest
+    container_name: bharatspec_app
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+    restart: unless-stopped

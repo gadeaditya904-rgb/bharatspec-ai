@@ -1,0 +1,32 @@
+GOVERNMENT OF INDIA - STATE RENEWABLE ENERGY DEVELOPMENT AGENCY
+NOTICE INVITING TENDER: SREDA/SOLAR-SL/2026/04
+TENDER FOR: Supply, Installation & 5-Year Maintenance of 90W Solar LED Street Lighting Systems
+
+SECTION 3: TECHNICAL SPECIFICATIONS
+1. SCOPE: Supply and installation of standalone solar street lighting systems for rural and urban roadways.
+2. PHOTOVOLTAIC MODULE:
+2.1 Crystalline silicon PV module with minimum peak power of 180 Wp at Standard Test Conditions (STC).
+2.2 Module conversion efficiency shall be >= 18.5% with fill factor > 72%.
+2.3 Mechanical load withstand: 2400 Pa wind load and 5400 Pa snow load.
+2.4 Weatherproof terminal junction box with IP65 protection and bypass diodes.
+2.5 PV module design qualification per IS 14286 / IEC 61215.
+3. LED LUMINAIRE & OPTICS:
+3.1 90W LED Luminaire with pressure die-cast aluminium LM6 housing.
+3.2 Luminaire system efficacy >= 130 Lumens/Watt.
+3.3 Correlated Color Temperature (CCT) 5700K (+/- 300K) and CRI >= 70.
+3.4 Optical compartment ingress protection rating IP65 / IP66.
+3.5 Impact resistance rating IK08 toughened glass.
+4. BATTERY & ENERGY STORAGE:
+4.1 Lithium Ferro Phosphate (LiFePO4) battery pack: 12.8V, 60Ah (768 Wh capacity).
+4.2 Minimum 2500 cycles at 80% Depth of Discharge.
+4.3 Integrated smart Battery Management System (BMS) with overcharge and cell balance.
+4.4 Operating temperature: -10°C to 50°C.
+5. CHARGE CONTROLLER:
+5.1 MPPT charge controller with >= 98% tracking efficiency and dusk-to-dawn sensor.
+5.2 Built-in surge protection device withstanding 10 kV line-to-earth surges.
+6. MAST & POLE:
+6.1 7-meter octagonal hot-dip galvanized steel pole with zinc coating >= 400 g/m2.
+6.2 Structural withstand against gust wind speeds up to 150 km/h.
+7. WARRANTY & COMPLIANCE:
+7.1 5 years comprehensive on-site warranty for entire system.
+7.2 Mandatory BIS CRS registration for battery and ISI Mark for luminaire.
